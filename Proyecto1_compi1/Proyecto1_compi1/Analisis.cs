@@ -11,14 +11,15 @@ namespace Proyecto1_compi1
     class Analisis
     {
         public List<string> Tokens = new List<string>();
-        public List<string> palabras = new List<string>();
-
+        public List<string> error = new List<string>();
+        private int errores = 0;
         public void Analisis_txt(string texto) {
             char[] listado = texto.ToArray();
             string token = "";
             int estadoinicial = 0;
             int fila = 0;
             int columnas = 0;
+            
 
             for (int i = 0; i < listado.Length; i++) {
 
@@ -41,11 +42,11 @@ namespace Proyecto1_compi1
                         {
                             if (token == "")
                             {
-                               
+
                             }
                             else
                             {
-                                Verificar(token,0);
+                                Verificar(token, 0);
                                 token = "";
                                 estadoinicial = 0;
                             }
@@ -56,19 +57,21 @@ namespace Proyecto1_compi1
                             Encoding.ASCII.GetBytes(listado[i] + "")[0] >= 91 && Encoding.ASCII.GetBytes(listado[i] + "")[0] <= 96 ||
                             Encoding.ASCII.GetBytes(listado[i] + "")[0] >= 123 && Encoding.ASCII.GetBytes(listado[i] + "")[0] <= 126)
                             {
-                                if (token == "")
-                                {
-                                    
-                                    token = listado[i] + "";
-                                    estadoinicial = 2;
-                                }
-                                else
-                                {
-                                    Verificar(token,0);
-                                    token = "";
-                                    token = listado[i] + "";
-                                    estadoinicial = 2;
-                                }
+                                
+                                                if (token == "")
+                                                {
+
+                                                    token = listado[i] + "";
+                                                    estadoinicial = 2;
+                                                }
+                                
+                                                else
+                                                {
+                                                    Verificar(token, 0);
+                                                    token = "";
+                                                    token = listado[i] + "";
+                                                    estadoinicial = 2;
+                                                }
 
                             }
                             else if (Encoding.ASCII.GetBytes(listado[i] + "")[0] >= 48 && Encoding.ASCII.GetBytes(listado[i] + "")[0] <= 57)
@@ -87,6 +90,9 @@ namespace Proyecto1_compi1
 
                             }
                             else { //error
+                                MessageBox.Show("entra al error");
+                                error.Add(listado[i] + "");
+                                errores++;
                             }
                         }
                         break;
@@ -155,6 +161,8 @@ namespace Proyecto1_compi1
                             }
                             else {
                                 //error
+                                error.Add(listado[i]+"");
+                                errores++;
                             }
 
 
@@ -255,6 +263,8 @@ namespace Proyecto1_compi1
                             
                             else {
                                 //Error
+                                error.Add(listado[i] + "");
+                                errores++;
                             }
                         }
                         break;
@@ -292,38 +302,93 @@ namespace Proyecto1_compi1
                 }
                 //fin del for listado
             }
-            for (int i=0; i<Tokens.Count;i++) {
-                Console.WriteLine(Tokens[i]);
+            if (errores > 0)
+            {
+                MessageBox.Show("El Analisis termino con errores incluido");
+                Console.WriteLine("los errores fueron");
+                for (int i = 0; i < error.Count; i++)
+                {
+                    Console.WriteLine(error[i]);
+                }
+                errores = 0;
             }
-           
+            else {
+                MessageBox.Show("el Analisis termino sin errores");
+                for (int i = 0; i < Tokens.Count; i++)
+                {
+                    Console.WriteLine(Tokens[i]);
+                }
+                errores = 0;
+            }
+
+            Generador_AFN_AFD vamos = new Generador_AFN_AFD();
+            vamos.Lista(Tokens);
         }
 
         private void Verificar(string token, int id)
         {
-            if (token == ".") { Tokens.Add(token + "@ tk_concatenacion"); id = -1; }
-            else if (token == "|") { Tokens.Add(token + "@ tk_or"); id = -1; }
-            else if (token == "\\") { Tokens.Add(token + "@ tk_diagonal"); id = -1; }
-            else if (token == "+") { Tokens.Add(token + "@ tk_mas"); id = -1; }
-            else if (token == "*") { Tokens.Add(token + "@ tk_mul"); id = -1; }
-            else if (token == "~") { Tokens.Add(token + "@ tk_virgulia"); id = -1; }
-            else if (token == "{") { Tokens.Add(token + "@ tk_iniciollave"); id = -1; }
-            else if (token == "}") { Tokens.Add(token + "@ tk_finllave"); id = -1; }
-            else if (token == "<!") { Tokens.Add(token + "@ tk_iniciocomenmulti"); id = -1; }
-            else if (token == "//") { Tokens.Add(token + "@ tk_iniciocomenlineal"); id = -1; }
-            else if (token == "!>") { Tokens.Add(token + "@ tk_fincomenmulti"); id = -1; }
-            else if (token == ";") { Tokens.Add(token + "@ tk_puntocoma"); id = -1; }
-            else if (token == ":") { Tokens.Add(token + "@ tk_dospuntos"); id = -1; }
-            else if (token == "-") { Tokens.Add(token + "@ tk_guion"); id = -1; }
-            else if (token == "\"") { Tokens.Add(token + "@ tk_comilladoble"); id = -1; }
-            else if (token == "<") { Tokens.Add(token + "@ tk_menorq"); id = -1; }
-            else if (token == ">") { Tokens.Add(token + "@ tk_mayorq"); id = -1; }
-            else if (token == "%") { Tokens.Add(token + "@ tk_porcentaje"); id = -1; }
+            if (token == ".") { Tokens.Add(token + "@tk_concatenacion"); id = -1; }
+            else if (token == "|") { Tokens.Add(token + "@tk_or"); id = -1; }
+            else if (token == "CONJ") { Tokens.Add(token + "@tk_conjunto"); id = -1; }
+            else if (token == "\\") { Tokens.Add(token + "@tk_diagonal"); id = -1; }
+            else if (token == "+") { Tokens.Add(token + "@tk_masveces"); id = -1; }
+            else if (token == "*") { Tokens.Add(token + "@tk_ceromasveces"); id = -1; }
+            else if (token == "~") { Tokens.Add(token + "@tk_virgulia"); id = -1; }
+            else if (token == "{") { Tokens.Add(token + "@tk_iniciollave"); id = -1; }
+            else if (token == "}") { Tokens.Add(token + "@tk_finllave"); id = -1; }
+            else if (token == "<!") { Tokens.Add(token + "@tk_iniciocomenmulti"); id = -1; }
+            else if (token == "//") { Tokens.Add(token + "@tk_iniciocomenlineal"); id = -1; }
+            else if (token == "!>") { Tokens.Add(token + "@tk_fincomenmulti"); id = -1; }
+            else if (token == ",") { Tokens.Add(token + "@tkcoma"); id = -1; }
+            else if (token == ";") { Tokens.Add(token + "@tk_puntocoma"); id = -1; }
+            else if (token == ":") { Tokens.Add(token + "@tk_dospuntos"); id = -1; }
+            else if (token == "-") { Tokens.Add(token + "@tk_guion"); id = -1; }
+            else if (token == "\"") { Tokens.Add(token + "@tk_comilladoble"); id = -1; }
+            else if (token == "<") { Tokens.Add(token + "@tk_menorq"); id = -1; }
+            else if (token == ">") { Tokens.Add(token + "@tk_mayorq"); id = -1; }
+            else if (token == "%") { Tokens.Add(token + "@tk_porcentaje"); id = -1; }
+            else if (token == "?") { Tokens.Add(token + "@tk_interrogacion"); id = -1; }
+            else if (token == "->") { Tokens.Add(token + "@tk_indicador"); id = -1; }
             else
             {
-                if (id==0) { Tokens.Add(token + "@ tk_cadena"); }
-                else if (id == 1) { Tokens.Add(token + "@ tk_numero"); }
-                else if (id == 2) { Tokens.Add(token + "@ tk_signo"); }
-                else if (id == 3) { Tokens.Add(token + "@ tk_comentariolineal"); }
+                if (id==0) {
+                    if (Encoding.ASCII.GetBytes(token)[0] == 63)
+                    {
+                        error.Add(token);
+                        errores++;
+                    }
+                    else
+                    {
+                        Tokens.Add(token + "@tk_cadena");
+                    }
+
+                }
+                else if (id == 1) {
+                    if (Encoding.ASCII.GetBytes(token)[0] == 63)
+                    {
+                        error.Add(token);
+                        errores++;
+                    }
+                    else
+                    {
+
+                        Tokens.Add(token + "@tk_numero");
+                    }
+                }
+                else if (id == 2) {
+                    if (Encoding.ASCII.GetBytes(token)[0] == 63)
+                    {
+                        error.Add(token);
+                        errores++;
+                    }
+                    else
+                    {
+                        Tokens.Add(token + "@tk_signo");
+                    }
+                   
+
+                }
+                else if (id == 3) {Tokens.Add(token + "@ tk_comentariolineal");}
                 else if (id == 4) { Tokens.Add(token + "@ tk_comentariomultilineal"); }
             }
         }
