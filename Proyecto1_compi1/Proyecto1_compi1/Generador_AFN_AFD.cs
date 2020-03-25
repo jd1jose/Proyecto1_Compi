@@ -156,9 +156,10 @@ namespace Proyecto1_compi1
                         exprecion = Expresiones[i].Split('@');
                     }
                     else {
+                      
                         exprecion = etotal.Split('@');
                     }
-                    MessageBox.Show("el conta es:"+conta+" y e tiene:"+e+" y estamos ubicados en la lista con:"+exprecion[contador]);
+              
                     if (exprecion[contador + 1] == "tk_concatenacion" || exprecion[contador + 1] == "tk_or")
                     {
                                               
@@ -182,16 +183,46 @@ namespace Proyecto1_compi1
                             }
                             else
                             {
+
                                 e = "@" + exprecion[contador + 2] + exprecion[contador]+ exprecion[contador + 4]+"@tk_cadena";
-                                //mach
-                                MessageBox.Show("lo que tiene e:"+e);
-                                etotal = Loquetenia(contador, i);
-                                MessageBox.Show("etotal solo es:"+etotal);
-                                etotal += e;
-                                MessageBox.Show("como queda etotal entonces: "+etotal);
-                                e = "";
-                                contador = 0;
-                                conta++;
+                               // mach
+                                if (contador + 6 < exprecion.Length)
+                                {
+                                    MessageBox.Show("que tiene etotal:"+etotal+" el tamaño de exprecion:"+exprecion.Length);
+                                    if (etotal == "")
+                                    {
+                                        etotal = Loquetenia(contador, i);
+                                    }
+                                    else {
+                                        etotal = Loquetenia3(contador,etotal);
+                                    }
+                                
+                                    etotal += e;
+                                    if (etotal == "")
+                                    {
+                                        etotal += Loquetenia2(contador + 6, i, exprecion.Length);
+                                    }
+                                    else {
+                                        MessageBox.Show("que tiene exprecion.lengt y cual es "+ exprecion.Length+" "+ exprecion.ToString());
+                                        etotal += Loquetenia2(contador + 6, i, 31);
+                                    }
+                                   
+                                    MessageBox.Show("que tiene etotal en el if" + etotal);
+                               
+                                    e = "";
+                                    contador = 0;
+                                    conta++;
+                                }
+                                else
+                                {
+                                    etotal = Loquetenia(contador, i);
+                                    etotal += e;
+                        
+                                    e = "";
+                                    contador = 0;
+                                    conta++;
+                                }
+                                
                             }
                         }
 
@@ -209,16 +240,37 @@ namespace Proyecto1_compi1
                         }
                         else
                         {
-                            e = "@" + exprecion[contador+2] + exprecion[contador]+ "@tk_cadena";
-                            //mach
-                            MessageBox.Show("lo que tiene e en else if:" + e);
-                            etotal = Loquetenia(contador,i);
-                            MessageBox.Show("etotal solo es:" + etotal);
-                            etotal += e;
-                            MessageBox.Show("como queda etotal  en el else if entonces: " + etotal);
-                            e = "";
-                            contador = 0;
-                            conta++;
+                            e = "@" + exprecion[contador + 2] + exprecion[contador]+ "@tk_cadena";
+                            if (contador + 6 < exprecion.Length)
+                            {
+                                if (etotal=="") {
+                                    etotal = Loquetenia(contador, i);
+                                } else {
+                                    etotal = Loquetenia3(contador, etotal);
+                                }
+                                
+                                etotal += e;
+                                if (etotal == "")
+                                {
+                                    etotal += Loquetenia2(contador + 6, i, exprecion.Length);
+                                }
+                                else
+                                {
+                                    etotal += Loquetenia2(contador + 6, i, exprecion.Length);
+                                }
+                                MessageBox.Show("que tiene etotal en el if"+etotal);
+                                e = "";
+                                contador = 0;
+                                conta++;
+                            }
+                            else
+                            {
+                                etotal = Loquetenia(contador, i);
+                                etotal += e;
+                                e = "";
+                                contador = 0;
+                                conta++;
+                            }
                         }
 
 
@@ -227,15 +279,69 @@ namespace Proyecto1_compi1
                         contador = contador + 2;
                     }
                 }
-
+                //miremos como queda porque tenes que hacer que el nach realice las cosas esas
                 Console.WriteLine("la expression es: "+etotal);
                 etotal = "";
+                e = "";
                 contador = 1;
             }
           
 
         }
+        private string Loquetenia3(int contador, string lista)
+        {
+            string e = "";
+            string[] datos = lista.Split('@');
 
+            for (int j = 0; j < contador; j++)
+            {
+                if (j == contador)
+                {
+                    if (datos[j] == "tk_concatenacion" || datos[j] == "tk_or" ||
+                            datos[j] == "tk_masveces" || datos[j] == "tk_ceromasveces" ||
+                           datos[j] == "tk_interrogacion" || datos[j] == "tk_cadena")
+                    {
+                        e += "@" + datos[j];
+                    }
+                    else { break; }
+
+                }
+                else
+                {
+                    e += "@" + datos[j];
+                }
+
+            }
+
+            return e;
+        }
+        private string Loquetenia2(int contador, int i,int hasta) {
+            string e = "";
+            //cambiar Expresiones
+            string[] datos = Expresiones[i].Split('@');
+            
+            for (int j = contador; j <hasta ; j++)
+            {
+                if (j == hasta)
+                {
+                    if (datos[j] == "tk_concatenacion" || datos[j] == "tk_or" ||
+                            datos[j] == "tk_masveces" || datos[j] == "tk_ceromasveces" ||
+                           datos[j] == "tk_interrogacion" || datos[j] == "tk_cadena")
+                    {
+                        e += "@" + datos[j];
+                    }
+                    else { break; }
+
+                }
+                else
+                {
+                    e += "@" + datos[j];
+                }
+
+            }
+            MessageBox.Show("que tengo en loquetenia2:"+e);
+            return e;
+        }
         private string Loquetenia(int contador,int i)
         {
             string e="";
@@ -256,7 +362,7 @@ namespace Proyecto1_compi1
                 }
                 
             }
-
+          
             return e;
         }
 
