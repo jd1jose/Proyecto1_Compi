@@ -31,15 +31,16 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.B_abrir = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.console = new System.Windows.Forms.RichTextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.B_anterior = new System.Windows.Forms.Button();
-            this.B_siguiente = new System.Windows.Forms.Button();
-            this.texto = new System.Windows.Forms.RichTextBox();
             this.analizarLexicamenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analisisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generarElAFNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generarElAFDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.console = new System.Windows.Forms.RichTextBox();
+            this.B_anterior = new System.Windows.Forms.Button();
+            this.B_siguiente = new System.Windows.Forms.Button();
+            this.texto = new System.Windows.Forms.RichTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.guardarComoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -65,25 +66,50 @@
             // 
             // guardarToolStripMenuItem
             // 
+            this.guardarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.guardarComoToolStripMenuItem});
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.guardarToolStripMenuItem.Text = "Guardar";
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(130, 20);
+            this.guardarToolStripMenuItem.Text = "Opciones de Guardar";
+            this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
+            // 
+            // analizarLexicamenteToolStripMenuItem
+            // 
+            this.analizarLexicamenteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.analisisToolStripMenuItem,
+            this.generarElAFNToolStripMenuItem,
+            this.generarElAFDToolStripMenuItem});
+            this.analizarLexicamenteToolStripMenuItem.Name = "analizarLexicamenteToolStripMenuItem";
+            this.analizarLexicamenteToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.analizarLexicamenteToolStripMenuItem.Text = "Acciones";
+            // 
+            // analisisToolStripMenuItem
+            // 
+            this.analisisToolStripMenuItem.Name = "analisisToolStripMenuItem";
+            this.analisisToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.analisisToolStripMenuItem.Text = "Analisis";
+            this.analisisToolStripMenuItem.Click += new System.EventHandler(this.analisisToolStripMenuItem_Click);
+            // 
+            // generarElAFNToolStripMenuItem
+            // 
+            this.generarElAFNToolStripMenuItem.Name = "generarElAFNToolStripMenuItem";
+            this.generarElAFNToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.generarElAFNToolStripMenuItem.Text = "Generar el AFN";
+            this.generarElAFNToolStripMenuItem.Click += new System.EventHandler(this.generarElAFNToolStripMenuItem_Click);
+            // 
+            // generarElAFDToolStripMenuItem
+            // 
+            this.generarElAFDToolStripMenuItem.Name = "generarElAFDToolStripMenuItem";
+            this.generarElAFDToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.generarElAFDToolStripMenuItem.Text = "Generar el AFD";
             // 
             // console
             // 
-            this.console.Location = new System.Drawing.Point(4, 338);
+            this.console.Location = new System.Drawing.Point(0, 325);
             this.console.Name = "console";
             this.console.Size = new System.Drawing.Size(371, 107);
             this.console.TabIndex = 2;
             this.console.Text = "";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(419, 49);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(285, 218);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // B_anterior
             // 
@@ -112,44 +138,31 @@
             this.texto.TabIndex = 6;
             this.texto.Text = "";
             // 
-            // analizarLexicamenteToolStripMenuItem
+            // pictureBox1
             // 
-            this.analizarLexicamenteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.analisisToolStripMenuItem,
-            this.generarElAFNToolStripMenuItem,
-            this.generarElAFDToolStripMenuItem});
-            this.analizarLexicamenteToolStripMenuItem.Name = "analizarLexicamenteToolStripMenuItem";
-            this.analizarLexicamenteToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.analizarLexicamenteToolStripMenuItem.Text = "Acciones";
+            this.pictureBox1.Location = new System.Drawing.Point(430, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(288, 240);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
-            // analisisToolStripMenuItem
+            // guardarComoToolStripMenuItem
             // 
-            this.analisisToolStripMenuItem.Name = "analisisToolStripMenuItem";
-            this.analisisToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.analisisToolStripMenuItem.Text = "Analisis";
-            this.analisisToolStripMenuItem.Click += new System.EventHandler(this.analisisToolStripMenuItem_Click);
-            // 
-            // generarElAFNToolStripMenuItem
-            // 
-            this.generarElAFNToolStripMenuItem.Name = "generarElAFNToolStripMenuItem";
-            this.generarElAFNToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.generarElAFNToolStripMenuItem.Text = "Generar el AFN";
-            // 
-            // generarElAFDToolStripMenuItem
-            // 
-            this.generarElAFDToolStripMenuItem.Name = "generarElAFDToolStripMenuItem";
-            this.generarElAFDToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.generarElAFDToolStripMenuItem.Text = "Generar el AFD";
+            this.guardarComoToolStripMenuItem.Name = "guardarComoToolStripMenuItem";
+            this.guardarComoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.guardarComoToolStripMenuItem.Text = "Guardar Como";
+            this.guardarComoToolStripMenuItem.Click += new System.EventHandler(this.guardarComoToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 457);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.texto);
             this.Controls.Add(this.B_siguiente);
             this.Controls.Add(this.B_anterior);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.console);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -169,7 +182,6 @@
         private System.Windows.Forms.ToolStripMenuItem B_abrir;
         private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
         private System.Windows.Forms.RichTextBox console;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button B_anterior;
         private System.Windows.Forms.Button B_siguiente;
         private System.Windows.Forms.RichTextBox texto;
@@ -177,6 +189,8 @@
         private System.Windows.Forms.ToolStripMenuItem analisisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem generarElAFNToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem generarElAFDToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem guardarComoToolStripMenuItem;
     }
 }
 

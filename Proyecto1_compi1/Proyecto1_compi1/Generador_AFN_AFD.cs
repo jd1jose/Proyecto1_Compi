@@ -15,20 +15,32 @@ namespace Proyecto1_compi1
         public List<string> conjuntos = new List<string>();
         public List<string> tabla_simbolos = new List<string>();
         public List<string> d = new List<string>();
-
+        private int rep=-1;
+        private string loq ="";
+        public string nombres;
         public void Lista(List<string> Lista_Tokens) {
             tabla_simbolos = Lista_Tokens;
             exp();
             conjunto();
             Console.WriteLine("estas son las expresiones");
-            for (int i=0;i<Expresiones.Count();i++) {
+            for (int i = 0; i < Expresiones.Count(); i++) {
                 Console.WriteLine(Expresiones[i]);
+                string[] der = Expresiones[i].Split('@');
+                if (nombres == "")
+                {
+                   
+                    nombres = der[0];
+                }
+                else { nombres += ","+ der[0]; }
             }
             Console.WriteLine("estas son los conjuntos");
             for (int i = 0; i < conjuntos.Count(); i++) {
                 Console.WriteLine(conjuntos[i]);
             }
             Pol();
+        }
+        public string getname() {
+            return nombres;
         }
         public void exp() {
             string er = "";
@@ -143,6 +155,9 @@ namespace Proyecto1_compi1
             int contador = 1;
             string etotal = "";
             string e = "";
+            string exp2 = "";
+            int bandera = 0;
+            string nombre = "";
             for (int i=0; i<Expresiones.Count;i++) {
                 
                 int max = maximo(i);
@@ -154,10 +169,12 @@ namespace Proyecto1_compi1
                     if (etotal == "" &&conta==0)
                     {
                         exprecion = Expresiones[i].Split('@');
+                        nombre = exprecion[0];
                     }
                     else {
                       
                         exprecion = etotal.Split('@');
+                        exp2 = etotal;
                     }
               
                     if (exprecion[contador + 1] == "tk_concatenacion" || exprecion[contador + 1] == "tk_or")
@@ -185,29 +202,33 @@ namespace Proyecto1_compi1
                             {
 
                                 e = "@" + exprecion[contador + 2] + exprecion[contador]+ exprecion[contador + 4]+"@tk_cadena";
-                               // mach
+                              
+                             
+                                // mach
                                 if (contador + 6 < exprecion.Length)
                                 {
-                                    MessageBox.Show("que tiene etotal:"+etotal+" el tamaño de exprecion:"+exprecion.Length);
+                                    bandera = 1;
                                     if (etotal == "")
                                     {
                                         etotal = Loquetenia(contador, i);
                                     }
-                                    else {
+                                    else { 
+                                
                                         etotal = Loquetenia3(contador,etotal);
                                     }
                                 
                                     etotal += e;
-                                    if (etotal == "")
+                                    if (exp2 == "")
                                     {
-                                        etotal += Loquetenia2(contador + 6, i, exprecion.Length);
+                                  
+                                        etotal += Loquetenia2(contador + 6, i, exprecion.Length,"");
                                     }
                                     else {
-                                        MessageBox.Show("que tiene exprecion.lengt y cual es "+ exprecion.Length+" "+ exprecion.ToString());
-                                        etotal += Loquetenia2(contador + 6, i, 31);
+                               
+                                        etotal += Loquetenia2(contador + 6, i, exprecion.Length, exp2);
                                     }
                                    
-                                    MessageBox.Show("que tiene etotal en el if" + etotal);
+                             
                                
                                     e = "";
                                     contador = 0;
@@ -240,7 +261,10 @@ namespace Proyecto1_compi1
                         }
                         else
                         {
-                            e = "@" + exprecion[contador + 2] + exprecion[contador]+ "@tk_cadena";
+
+                            e = "@(" + exprecion[contador + 2] +")"+ exprecion[contador]+ "@tk_cadena";
+                           
+                       
                             if (contador + 6 < exprecion.Length)
                             {
                                 if (etotal=="") {
@@ -250,23 +274,34 @@ namespace Proyecto1_compi1
                                 }
                                 
                                 etotal += e;
-                                if (etotal == "")
+                                if (exp2 == "")
                                 {
-                                    etotal += Loquetenia2(contador + 6, i, exprecion.Length);
+                                    etotal += Loquetenia2(contador + 4, i, exprecion.Length,"");
                                 }
                                 else
                                 {
-                                    etotal += Loquetenia2(contador + 6, i, exprecion.Length);
+                                    etotal += Loquetenia2(contador + 4, i, exprecion.Length,exp2);
                                 }
-                                MessageBox.Show("que tiene etotal en el if"+etotal);
+                      
                                 e = "";
                                 contador = 0;
                                 conta++;
+                                bandera = 1;
                             }
                             else
                             {
-                                etotal = Loquetenia(contador, i);
+
+                                if (bandera == 0)
+                                {
+                                       etotal = Loquetenia(contador, i);
+                                }
+                                else {
+                                    etotal = Loquetenia3(contador, exp2);
+                                }
+                               
                                 etotal += e;
+                           
+
                                 e = "";
                                 contador = 0;
                                 conta++;
@@ -281,19 +316,303 @@ namespace Proyecto1_compi1
                 }
                 //miremos como queda porque tenes que hacer que el nach realice las cosas esas
                 Console.WriteLine("la expression es: "+etotal);
+                Expresionesnormal.Add(etotal);
                 etotal = "";
                 e = "";
+                exp2 = "";
                 contador = 1;
+                bandera = 0;
+                rep = -1;
+                AFN(nombre);
             }
-          
+            
 
+        }
+        private void AFN(string name) {
+            for (int i=0; i<Expresionesnormal.Count; i++) {
+                string[] datos = Expresionesnormal[i].Split('@');
+                char[] exp = datos[1].ToCharArray();
+              
+                List<string> letras = new List<string>();
+                string d = "";
+                int bandera = 0;
+                int inicio0 = 0,fin0=0;
+                for (int j=0;j< exp.Length;j++) {
+                    if (exp[j]=='|' || exp[j] == '+'|| exp[j] == '.'|| exp[j] == '*'
+                        || exp[j] == '?' || exp[j] == '(' || exp[j] == ')') {
+
+                        if (d=="") {
+                            letras.Add(exp[j]+"");
+                        } else {
+                            if (exp[j] == '(' || exp[j] == ')')
+                            {
+                            
+                                letras.Add(d);
+                                letras.Add(exp[j] + "");
+                                d = "";
+                            }
+                            else {
+                          
+                                letras.Add(d);
+                                letras.Add(exp[j] + "");
+                                d = "";
+                            }
+                           
+                        }
+
+                        if (exp[j] == '|') { bandera++; }
+                    } else {
+                        d += exp[j];
+                    }
+
+                }
+             
+                string dibujo = "";
+           
+                int contador = 1;
+                int inicio = 0, fin=0 ;
+                int rep = 1;
+                int m2 = 0;
+                for (int m = 0; m < letras.Count; m++) {
+                    if (letras[m] == "." || letras[m] == "|")
+                    {
+                        if (letras[m] == ".")
+                        {
+                            if (dibujo == "")
+                            {
+                               
+                                dibujo = "\""+contador + "\"->\"" + (contador + 1) + "\"[label=\""+ verificar(letras, letras[m - 1], (m - 1), '-') + "\"] \n";
+                                dibujo += "\"" + (contador + 1) + "\"->\"" + (contador + 2) + "\"[label=\"" + verificar(letras, letras[m + 1], (m + 1), '+') + "\"]  \n";
+                                inicio = contador + 2;
+                                fin = contador + 2;
+                            }
+                            else
+                            {
+                                contador = fin;
+                                dibujo += "\"" + contador + "\"->\"" + (contador + 1) + "\"[label=\"" + verificar(letras, letras[m - 1], (m - 1), '-') + "\"] \n";
+                                dibujo += "\"" + (contador + 1) + "\"->\"" + (contador + 2) + "\"[label=\"" + verificar(letras, letras[m + 1], (m + 1), '+') + "\"] \n";
+                                inicio = contador + 1;
+                                fin = contador + 2;
+                            }
+
+                        }
+                        else if(letras[m] == "|")
+                        {
+                            if (bandera == 1)
+                            {
+                                if (dibujo == "")
+                                {
+                                    contador = inicio;
+
+                                    dibujo = "\"" + contador + "\"->\"" + (contador + 1) + "\"[label=\"E\"] \n";
+                                    dibujo += "\"" + contador + "\"->\"" + (contador + 5) + "\"[label=\"E\"] \n";
+                                    dibujo += "\"" + (contador + 1) + "\"->\"" + (contador + 2) + "\"[label=\"" + verificar(letras, letras[m - 1], (m - 1), '-') + "\"] \n";
+                                    dibujo += "\"" + (contador + 3) + "\"->\"" + (contador + 4) + "\"[label=\"E\"] \n";
+                                    dibujo += "\"" + (contador + 5) + "\"->\"" + (contador + 6) + "\"[label=\"" + verificar(letras, letras[m + 1], (m + 1), '+') + "\"] \n";
+                                    dibujo += "\"" + (contador + 6) + "\"->\"" + (contador + 4) + "\"[label=\"E\"] \n";
+                                    fin = contador + 6;
+                                    inicio = contador + 4;
+                                    contador = fin;
+                                }
+                                else
+                                {
+                                    contador = inicio;
+
+                                    dibujo += "\"" + contador + "\"->\"" + (contador + 1) + "\"[label=\"E\"] \n";
+                                    dibujo += "\"" + contador + "\"->\"" + (contador + 5) + "\"[label=\"E\"] \n";
+                                    dibujo += "\"" + (contador + 1) + "\"->\"" + (contador + 2) + "\"[label=\"" + verificar(letras, letras[m - 1], (m - 1), '-') + "\"] \n";
+                                    dibujo += "\"" + (contador + 3) + "\"->\"" + (contador + 4) + "\"[label=\"E\"] \n";
+                                    dibujo += "\"" + (contador + 5) + "\"->\"" + (contador + 6) + "\"[label=\"" + verificar(letras, letras[m + 1], (m + 1), '+') + "\"] \n";
+                                    dibujo += "\"" + (contador + 6) + "\"->\"" + (contador + 4) + "\"[label=\"E\"] \n";
+                                    fin = contador + 6;
+                                    inicio = contador + 4;
+                                    contador = fin;
+                                }
+                            }
+                            else if (bandera == 2)
+                            {
+                                if (dibujo == "")
+                                {
+                                    if (rep == 1)
+                                    {
+                                        contador = inicio;
+
+                                        dibujo = "\"" + contador + "\"->\"" + (contador + 1) + "\"[label=\"E\"]\n";
+                                        dibujo += "\"" + contador + "\"->\"" + (contador + 7) + "\"[label=\"E\"]\n";
+                                        dibujo += "\"" + (contador + 1) + "\"->\"" + (contador + 2) + "\"[label=\"E\"]\n";
+                                        dibujo += "\"" + (contador + 1) + "\"->\"" + (contador + 5) + "\"[label=\"E\"]\n";
+                                        dibujo += "\"" + (contador + 2) + "\"->\"" + (contador + 3) + "\"[label=\"" + verificar(letras, letras[m - 1], (m - 1), '-') + "\"]\n";
+                                        dibujo += "\"" + (contador + 3) + "\"->\"" + (contador + 4) + "\"[label=\"E\"]\n";
+                                        dibujo += "\"" + (contador + 5) + "\"->\"" + (contador + 6) + "\"[label=\"" + verificar(letras, letras[m + 1], (m + 1), '+') + "\"]\n";
+                                        dibujo += "\"" + (contador + 6) + "\"->\"" + (contador + 4) + "\"[label=\"E\"]\n";
+                                        rep++;
+
+                                    }
+                                    else
+                                    {
+                                        dibujo += "\"" + (contador + 4) + "\"->\"" + (contador + 9) + "\"[label=\"E\"] \n";
+                                        dibujo += "\"" + (contador + 7) + "\"->\"" + (contador + 8) + "\"[label=\"" + verificar(letras, letras[m + 1], (m + 1), '+') + "\"]\n";
+                                        dibujo += "\"" + (contador + 8) + "\"->\"" + (contador + 9) + "\"[label=\"E\"]\n";
+
+                                        inicio = contador + 9;
+                                        fin = contador + 9;
+                                    }
+
+                                }
+                                else
+                                {
+                                    if (rep == 1)
+                                    {
+                                        contador = inicio;
+
+                                        dibujo += "\"" + contador + "\"->\"" + (contador + 1) + "\"[label=\"E\"]\n";
+                                        dibujo += "\"" + contador + "\"->\"" + (contador + 7) + "\"[label=\"E\"]\n";
+                                        dibujo += "\"" + (contador + 1) + "\"->\"" + (contador + 2) + "\"[label=\"E\"]\n";
+                                        dibujo += "\"" + (contador + 1) + "\"->\"" + (contador + 5) + "\"[label=\"E\"]\n";
+                                        dibujo += "\"" + (contador + 2) + "\"->\"" + (contador + 3) + "\"[label=\"" + verificar(letras, letras[m - 1], (m - 1), '-') + "\"]\n";
+                                        dibujo += "\"" + (contador + 3) + "\"->\"" + (contador + 4) + "\"[label=\"E\"]\n";
+                                        dibujo += "\"" + (contador + 5) + "\"->\"" + (contador + 6) + "\"[label=\"" + verificar(letras, letras[m + 1], (m + 1), '+') + "\"]\n";
+                                        dibujo += "\"" + (contador + 6) + "\"->\"" + (contador + 4) + "\"[label=\"E\"]\n";
+                                        rep++;
+
+                                    }
+                                    else
+                                    {
+                                        dibujo += "\"" + (contador + 4) + "\"->\"" + (contador + 9) + "\"[label=\"E\"] \n";
+                                        dibujo += "\"" + (contador + 7) + "\"->\"" + (contador + 8) + "\"[label=\"" + verificar(letras, letras[m + 1], (m + 1), '+') + "\"]\n";
+                                        dibujo += "\"" + (contador + 8) + "\"->\"" + (contador + 9) + "\"[label=\"E\"]\n";
+
+                                        inicio = contador + 9;
+                                        fin = contador + 9;
+                                    }
+
+                                }
+
+                            }
+
+                            }
+                      
+                    }
+                    else if (letras[m] == "*")
+                    {
+                        if (dibujo == "")
+                        {
+                            contador = fin;
+             
+                            dibujo = "\"" + contador + "\"->\"" + (contador + 1) + "\"[label=\"E\"] \n";
+                            dibujo += "\"" + (contador + 1) + "\"->\"" + (contador + 2) + "\"[label=\""+ verificar(letras, letras[m-1],(m-1),'-')+"\"] \n";
+                            dibujo += "\"" + (contador + 2) + "\"->\"" + (contador + 1) + "\"[label=\"E\"] \n";
+                            dibujo += "\"" + (contador + 2) + "\"->\"" + (contador + 3) + "\"[label=\"E\"] \n";
+                            dibujo += "\""+contador + "\"->\"" + (contador + 3) + "\"[label=\"E\"] \n";
+
+                        }
+                        else
+                        {
+                            contador = fin;
+
+                            dibujo += "\"" + contador + "\"->\"" + (contador + 1) + "\"[label=\"E\"] \n";
+                            dibujo += "\"" + contador + "\"->\"" + inicio0 + "\"[label=\""+ verificar(letras, letras[m-1],(m-1),'-')+"\"] \n";
+                            dibujo += "\"" + (inicio0-1) + "\"->\"" + (contador + 1) + "\"[label=\"E\"] \n";
+                            if (inicio0==1) {
+                                dibujo += "\"" + (inicio0-1) + "\"->\"" + (inicio0) + "\"[label=\"E\"] \n";
+                            }
+                           // 
+                            inicio = contador + 1;
+                            fin = contador+1;
+                           
+                        }
+                      
+                    } else if (letras[m] == "+") {
+                        if (dibujo == "")
+                        {
+                            contador = inicio;
+                   
+                            dibujo = "\""+contador + "\"->\"" + (contador + 1) + "\"[label=\"E\"] \n";
+                            dibujo += "\"" + (contador + 1) + "\"->\"" + (contador + 2) + "\"[label=\"" + verificar(letras, letras[m - 1], (m - 1), '-') + "\"] \n";
+                            dibujo += "\"" + (contador + 2) + "\"->\"" + (contador + 1) + "\"[label=\"E\"] \n";
+                            dibujo += "\"" + (contador + 2) + "\"->\"" + (contador + 3) + "\"[label=\"E\"] \n";
+                          
+
+                        }
+                        else
+                        {
+                            contador = inicio;
+                       
+                            dibujo += "\"" + (contador+1) + "\"->\"" + (contador+2) + "\"[label=\""+ verificar(letras, letras[m-1],(m-1),'-')+"\"] \n";
+                            dibujo += "\"" + (contador-1) + "\"->\"" + (contador+2) + "\"[label=\"E\"] \n";
+                            dibujo += "\"" +  (inicio0 +1)+ "\"->\"" + contador + "\"[label=\"E\"] \n";
+                            //dibujo += "\"" + (contador+1) + "\"->\"" + inicio0 + "\"\n";
+                        }
+                    }
+                    else if (letras[m] == "(") { inicio0 = inicio;
+                        
+                        if (letras[m+2]=="."&& letras[m + 4] == "|" && letras[m + 6] == ".") {
+                            if (dibujo == "")
+                            {
+                                inicio0 = contador;
+                                dibujo = "\"" + contador + "\"->\"" + (contador + 1) + "\"[label=\"E\"] \n";
+                                dibujo += "\"" + contador + "\"->\"" + (contador + 4) + "\"[label=\"E\"] \n";
+                                dibujo += "\"" + (contador + 1) + "\"->\"" + (contador + 2) + "\"[label=\"" + verificar(letras, letras[m + 1], (m + 1), '+') + "\"] \n";
+                                dibujo += "\"" + (contador + 4) + "\"->\"" + (contador + 5) + "\"[label=\"" + verificar(letras, letras[m + 5], (m + 5), '+') + "\"] \n";
+                                dibujo += "\"" + (contador + 5) + "\"->\"" + (contador + 6) + "\"[label=\"" + verificar(letras, letras[m + 7], (m + 7), '+') + "\"] \n";
+                                dibujo += "\"" + (contador + 2) + "\"->\"" + (contador + 3) + "\"[label=\"" + verificar(letras, letras[m + 3], (m + 3), '+') + "\"] \n";
+                                dibujo += "\"" + (contador + 6) + "\"->\"" + (contador + 7) + "\"[label=\"E\"] \n";
+                                dibujo += "\"" + (contador + 3) + "\"->\"" + (contador + 7) + "\"[label=\"E\"] \n";
+                                fin = contador + 7;
+                                inicio = contador;
+                                contador = fin;
+                                m += 6;
+                            }
+                            else {
+                                dibujo += "\"" + contador + "\"->\"" + (contador + 1) + "\"[label=\"E\"] \n";
+                                dibujo += "\"" + contador + "\"->\"" + (contador + 4) + "\"[label=\"E\"] \n";
+                                dibujo += "\"" + (contador + 1) + "\"->\"" + (contador + 2) + "\"[label=\"" + verificar(letras, letras[m + 1],(m+1),'+' )+ "\"] \n";
+                                dibujo += "\"" + (contador + 4) + "\"->\"" + (contador + 5) + "\"[label=\"" + verificar(letras, letras[m + 5],(m+5),'+' )+ "\"] \n";
+                                dibujo += "\"" + (contador + 5) + "\"->\"" + (contador + 6) + "\"[label=\"" + verificar(letras, letras[m + 7],(m+7),'+') + "\"] \n";
+                                dibujo += "\"" + (contador + 2) + "\"->\"" + (contador + 3) + "\"[label=\"" + verificar(letras,letras[m + 3],(m+3),'+')+ "\"] \n";
+                                dibujo += "\"" + (contador + 6) + "\"->\"" + (contador + 7) + "\"[label=\"E\"] \n";
+                                dibujo += "\"" + (contador + 3) + "\"->\"" + (contador + 7) + "\"[label=\"E\"] \n";
+                                fin = contador + 7;
+                                inicio = contador;
+                                contador = fin;
+                                m += 6;
+                            }
+                        }
+                    }
+                    else if (letras[m] == ")") { fin0 = fin;  }
+                    m2++;
+                }
+                Console.WriteLine(name+"vamos a probar  \n"+dibujo);
+                Dibujo_Dot archivod = new Dibujo_Dot();
+                archivod.Archivo(dibujo, name);
+            }
+
+        }
+        private string verificar(List<string> letras,string l,int i, Char p) {
+            //aqui necesito el listado, el contador el caracter y para donde me dirijo
+            string letra=l;
+
+            
+                if (l == "(" || l == ")" || l == "|" || l == "+" || l == "*" || l == "?" || l == ".")
+                {
+
+                letra = "E";
+
+                }
+                else {
+                    
+                }
+              
+            
+           
+            return letra;
         }
         private string Loquetenia3(int contador, string lista)
         {
             string e = "";
             string[] datos = lista.Split('@');
-
-            for (int j = 0; j < contador; j++)
+            e = datos[0];
+            for (int j = 1; j < contador; j++)
             {
                 if (j == contador)
                 {
@@ -312,15 +631,18 @@ namespace Proyecto1_compi1
                 }
 
             }
-
+         
             return e;
         }
-        private string Loquetenia2(int contador, int i,int hasta) {
+        private string Loquetenia2(int contador, int i,int hasta,string exp) {
             string e = "";
+            string[] datos;
+           
             //cambiar Expresiones
-            string[] datos = Expresiones[i].Split('@');
+            if (exp=="") {  datos = Expresiones[i].Split('@'); } else {  datos = exp.Split('@'); }
+         
             
-            for (int j = contador; j <hasta ; j++)
+            for (int j = contador; j <datos.Length ; j++)
             {
                 if (j == hasta)
                 {
@@ -335,11 +657,12 @@ namespace Proyecto1_compi1
                 }
                 else
                 {
-                    e += "@" + datos[j];
+                     e += "@" + datos[j]; 
+                  
                 }
 
             }
-            MessageBox.Show("que tengo en loquetenia2:"+e);
+           
             return e;
         }
         private string Loquetenia(int contador,int i)

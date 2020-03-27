@@ -1,0 +1,925 @@
+< ListaTokens >
+< ListaTokens >
+< Token >
+< Nombre > tk_iniciollave</ Nombre >
+ < Valor >{</ Valor >
+< Fila > 0</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_iniciocomenlineal</ Nombre >
+ < Valor >//</ Valor >
+< Fila > 3</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre >  tk_comentariolineal</ Nombre >
+ < Valor >Definicion de mis conjuntos </ Valor >
+< Fila > 3</ Fila >
+< Columna >1</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_conjunto</ Nombre >
+ < Valor >CONJ</ Valor >
+< Fila > 4</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_dospuntos</ Nombre >
+ < Valor >:</ Valor >
+< Fila > 4</ Fila >
+< Columna >1</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >digito</ Valor >
+< Fila > 4</ Fila >
+< Columna >2</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_indicador</ Nombre >
+ < Valor >-></ Valor >
+< Fila > 4</ Fila >
+< Columna >3</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_numero</ Nombre >
+ < Valor >1</ Valor >
+< Fila > 4</ Fila >
+< Columna >5</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_virgulia</ Nombre >
+ < Valor >~</ Valor >
+< Fila > 4</ Fila >
+< Columna >6</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_numero</ Nombre >
+ < Valor >9</ Valor >
+< Fila > 4</ Fila >
+< Columna >7</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_puntocoma</ Nombre >
+ < Valor >;</ Valor >
+< Fila > 4</ Fila >
+< Columna >8</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_conjunto</ Nombre >
+ < Valor >CONJ</ Valor >
+< Fila > 5</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_dospuntos</ Nombre >
+ < Valor >:</ Valor >
+< Fila > 5</ Fila >
+< Columna >1</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >letra</ Valor >
+< Fila > 5</ Fila >
+< Columna >2</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_indicador</ Nombre >
+ < Valor >-></ Valor >
+< Fila > 5</ Fila >
+< Columna >3</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >a</ Valor >
+< Fila > 5</ Fila >
+< Columna >5</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_virgulia</ Nombre >
+ < Valor >~</ Valor >
+< Fila > 5</ Fila >
+< Columna >6</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >z</ Valor >
+< Fila > 5</ Fila >
+< Columna >7</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_puntocoma</ Nombre >
+ < Valor >;</ Valor >
+< Fila > 5</ Fila >
+< Columna >8</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_iniciocomenmulti</ Nombre >
+ < Valor ><!</ Valor >
+< Fila > 7</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre >  tk_comentariomultilineal</ Nombre >
+ < Valor >
+	Expresiones regulares basica, intermedia, avanzada
+</ Valor >
+< Fila > 7</ Fila >
+< Columna >1</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_fincomenmulti</ Nombre >
+ < Valor >!></ Valor >
+< Fila > 7</ Fila >
+< Columna >2</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_iniciocomenlineal</ Nombre >
+ < Valor >//</ Valor >
+< Fila > 10</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre >  tk_comentariolineal</ Nombre >
+ < Valor >Expresiones Regulares</ Valor >
+< Fila > 10</ Fila >
+< Columna >1</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >er1</ Valor >
+< Fila > 11</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_indicador</ Nombre >
+ < Valor >-></ Valor >
+< Fila > 11</ Fila >
+< Columna >1</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_concatenacion</ Nombre >
+ < Valor >.</ Valor >
+< Fila > 11</ Fila >
+< Columna >3</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >letra</ Valor >
+< Fila > 11</ Fila >
+< Columna >4</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_ceromasveces</ Nombre >
+ < Valor >*</ Valor >
+< Fila > 11</ Fila >
+< Columna >5</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_or</ Nombre >
+ < Valor >|</ Valor >
+< Fila > 11</ Fila >
+< Columna >6</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >letra</ Valor >
+< Fila > 11</ Fila >
+< Columna >7</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_or</ Nombre >
+ < Valor >|</ Valor >
+< Fila > 11</ Fila >
+< Columna >8</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >digito</ Valor >
+< Fila > 11</ Fila >
+< Columna >10</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 11</ Fila >
+< Columna >11</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_signo</ Nombre >
+ < Valor >_</ Valor >
+< Fila > 11</ Fila >
+< Columna >12</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 11</ Fila >
+< Columna >13</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_puntocoma</ Nombre >
+ < Valor >;</ Valor >
+< Fila > 11</ Fila >
+< Columna >14</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >er2</ Valor >
+< Fila > 12</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_indicador</ Nombre >
+ < Valor >-></ Valor >
+< Fila > 12</ Fila >
+< Columna >1</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_concatenacion</ Nombre >
+ < Valor >.</ Valor >
+< Fila > 12</ Fila >
+< Columna >3</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_concatenacion</ Nombre >
+ < Valor >.</ Valor >
+< Fila > 12</ Fila >
+< Columna >4</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_concatenacion</ Nombre >
+ < Valor >.</ Valor >
+< Fila > 12</ Fila >
+< Columna >5</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_ceromasveces</ Nombre >
+ < Valor >*</ Valor >
+< Fila > 12</ Fila >
+< Columna >6</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_or</ Nombre >
+ < Valor >|</ Valor >
+< Fila > 12</ Fila >
+< Columna >7</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_concatenacion</ Nombre >
+ < Valor >.</ Valor >
+< Fila > 12</ Fila >
+< Columna >9</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 12</ Fila >
+< Columna >10</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >c</ Valor >
+< Fila > 12</ Fila >
+< Columna >11</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 12</ Fila >
+< Columna >12</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 12</ Fila >
+< Columna >13</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >d</ Valor >
+< Fila > 12</ Fila >
+< Columna >14</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 12</ Fila >
+< Columna >15</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_concatenacion</ Nombre >
+ < Valor >.</ Valor >
+< Fila > 12</ Fila >
+< Columna >16</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 12</ Fila >
+< Columna >17</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >a</ Valor >
+< Fila > 12</ Fila >
+< Columna >18</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 12</ Fila >
+< Columna >19</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 12</ Fila >
+< Columna >20</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >b</ Valor >
+< Fila > 12</ Fila >
+< Columna >21</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 12</ Fila >
+< Columna >22</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 12</ Fila >
+< Columna >23</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >b</ Valor >
+< Fila > 12</ Fila >
+< Columna >24</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 12</ Fila >
+< Columna >25</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 12</ Fila >
+< Columna >26</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >c</ Valor >
+< Fila > 12</ Fila >
+< Columna >27</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 12</ Fila >
+< Columna >28</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_masveces</ Nombre >
+ < Valor >+</ Valor >
+< Fila > 12</ Fila >
+< Columna >29</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 12</ Fila >
+< Columna >30</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >d</ Valor >
+< Fila > 12</ Fila >
+< Columna >31</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 12</ Fila >
+< Columna >32</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_puntocoma</ Nombre >
+ < Valor >;</ Valor >
+< Fila > 12</ Fila >
+< Columna >33</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_porcentaje</ Nombre >
+ < Valor >%</ Valor >
+< Fila > 15</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_porcentaje</ Nombre >
+ < Valor >%</ Valor >
+< Fila > 15</ Fila >
+< Columna >1</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_porcentaje</ Nombre >
+ < Valor >%</ Valor >
+< Fila > 16</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_porcentaje</ Nombre >
+ < Valor >%</ Valor >
+< Fila > 16</ Fila >
+< Columna >1</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_iniciocomenmulti</ Nombre >
+ < Valor ><!</ Valor >
+< Fila > 18</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre >  tk_comentariomultilineal</ Nombre >
+ < Valor >
+	Definicion de lexemas
+</ Valor >
+< Fila > 18</ Fila >
+< Columna >1</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_fincomenmulti</ Nombre >
+ < Valor >!></ Valor >
+< Fila > 18</ Fila >
+< Columna >2</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >er1</ Valor >
+< Fila > 21</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_dospuntos</ Nombre >
+ < Valor >:</ Valor >
+< Fila > 21</ Fila >
+< Columna >1</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 21</ Fila >
+< Columna >2</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >abecedario</ Valor >
+< Fila > 21</ Fila >
+< Columna >3</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_signo</ Nombre >
+ < Valor >_</ Valor >
+< Fila > 21</ Fila >
+< Columna >4</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >cadena1</ Valor >
+< Fila > 21</ Fila >
+< Columna >5</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_signo</ Nombre >
+ < Valor >_</ Valor >
+< Fila > 21</ Fila >
+< Columna >6</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >cadena2</ Valor >
+< Fila > 21</ Fila >
+< Columna >7</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 21</ Fila >
+< Columna >8</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_puntocoma</ Nombre >
+ < Valor >;</ Valor >
+< Fila > 21</ Fila >
+< Columna >9</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >er1</ Valor >
+< Fila > 22</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_dospuntos</ Nombre >
+ < Valor >:</ Valor >
+< Fila > 22</ Fila >
+< Columna >1</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 22</ Fila >
+< Columna >2</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >z</ Valor >
+< Fila > 22</ Fila >
+< Columna >3</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 22</ Fila >
+< Columna >4</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_puntocoma</ Nombre >
+ < Valor >;</ Valor >
+< Fila > 22</ Fila >
+< Columna >5</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >er1</ Valor >
+< Fila > 23</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_dospuntos</ Nombre >
+ < Valor >:</ Valor >
+< Fila > 23</ Fila >
+< Columna >1</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 23</ Fila >
+< Columna >2</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >1uno</ Valor >
+< Fila > 23</ Fila >
+< Columna >3</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 23</ Fila >
+< Columna >4</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_puntocoma</ Nombre >
+ < Valor >;</ Valor >
+< Fila > 23</ Fila >
+< Columna >5</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_iniciocomenlineal</ Nombre >
+ < Valor >//</ Valor >
+< Fila > 23</ Fila >
+< Columna >7</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre >  tk_comentariolineal</ Nombre >
+ < Valor >error</ Valor >
+< Fila > 23</ Fila >
+< Columna >8</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >er2</ Valor >
+< Fila > 24</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_dospuntos</ Nombre >
+ < Valor >:</ Valor >
+< Fila > 24</ Fila >
+< Columna >1</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 24</ Fila >
+< Columna >2</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >aaaa</ Valor >
+< Fila > 24</ Fila >
+< Columna >3</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 24</ Fila >
+< Columna >4</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_puntocoma</ Nombre >
+ < Valor >;</ Valor >
+< Fila > 24</ Fila >
+< Columna >5</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_iniciocomenlineal</ Nombre >
+ < Valor >//</ Valor >
+< Fila > 24</ Fila >
+< Columna >7</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre >  tk_comentariolineal</ Nombre >
+ < Valor >error</ Valor >
+< Fila > 24</ Fila >
+< Columna >8</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >er2</ Valor >
+< Fila > 25</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_dospuntos</ Nombre >
+ < Valor >:</ Valor >
+< Fila > 25</ Fila >
+< Columna >1</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 25</ Fila >
+< Columna >2</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >bcdddd</ Valor >
+< Fila > 25</ Fila >
+< Columna >3</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 25</ Fila >
+< Columna >4</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_puntocoma</ Nombre >
+ < Valor >;</ Valor >
+< Fila > 25</ Fila >
+< Columna >5</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >er2</ Valor >
+< Fila > 26</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_dospuntos</ Nombre >
+ < Valor >:</ Valor >
+< Fila > 26</ Fila >
+< Columna >1</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 26</ Fila >
+< Columna >2</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >bcd</ Valor >
+< Fila > 26</ Fila >
+< Columna >3</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 26</ Fila >
+< Columna >4</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_puntocoma</ Nombre >
+ < Valor >;</ Valor >
+< Fila > 26</ Fila >
+< Columna >5</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >er2</ Valor >
+< Fila > 27</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_dospuntos</ Nombre >
+ < Valor >:</ Valor >
+< Fila > 27</ Fila >
+< Columna >1</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 27</ Fila >
+< Columna >2</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_cadena</ Nombre >
+ < Valor >ababcdabcdbc</ Valor >
+< Fila > 27</ Fila >
+< Columna >3</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_comilladoble</ Nombre >
+ < Valor >"</ Valor >
+< Fila > 27</ Fila >
+< Columna >4</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_puntocoma</ Nombre >
+ < Valor >;</ Valor >
+< Fila > 27</ Fila >
+< Columna >5</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_iniciocomenlineal</ Nombre >
+ < Valor >//</ Valor >
+< Fila > 27</ Fila >
+< Columna >7</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre >  tk_comentariolineal</ Nombre >
+ < Valor >error falta d al final</ Valor >
+< Fila > 27</ Fila >
+< Columna >8</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_iniciocomenmulti</ Nombre >
+ < Valor ><!</ Valor >
+< Fila > 29</ Fila >
+< Columna >0</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre >  tk_comentariomultilineal</ Nombre >
+ < Valor >
+	Fin del archivo
+</ Valor >
+< Fila > 29</ Fila >
+< Columna >1</ Columna >
+ </ Token >
+< ListaTokens >
+< Token >
+< Nombre > tk_fincomenmulti</ Nombre >
+ < Valor >!></ Valor >
+< Fila > 29</ Fila >
+< Columna >2</ Columna >
+ </ Token >
+< /ListaTokens >

@@ -1,0 +1,14 @@
+< ListaTokens >
+< ListaErrores >
+ <Error >
+ < Valor >Ñ</ Valor >
+< Fila > 6</ Fila >
+< Columna >0</ Columna >
+ </ Error >
+< ListaErrores >
+ <Error >
+ < Valor >Ö</ Valor >
+< Fila > 11</ Fila >
+< Columna >16</ Columna >
+ </ Error >
+< /ListaErrores >

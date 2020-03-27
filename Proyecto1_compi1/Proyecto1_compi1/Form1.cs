@@ -13,6 +13,7 @@ namespace Proyecto1_compi1
 {
     public partial class Form1 : Form
     {
+        Analisis d = new Analisis();
         public Form1()
         {
             InitializeComponent();
@@ -57,8 +58,54 @@ namespace Proyecto1_compi1
 
         private void analisisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Analisis d = new Analisis();
+            
             d.Analisis_txt(texto.Text);
+            
+
+        }
+
+        private void generarElAFNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<string>Tokens=d.AFN();
+            Generador_AFN_AFD vamos = new Generador_AFN_AFD();
+            vamos.Lista(Tokens);
+        
+            string[] name = vamos.getname().Split(',');
+            for (int i =1; i<name.Length;i++) {
+                pictureBox1.Image = Image.FromFile(
+                    @"C:\Users\José David\Documents\Visual Studio 2015\Projects\Proyecto1_compi1\Proyecto1_compi1\bin\Debug\Dot\" + name[i] + ".png");
+                //  
+            }
+
+            //string imagePath = Path.Combine(Application.StartupPath, "Imágenes\\Movimientos\\Rey.jpg");
+
+            //Picture.Image = Image.FromFile(imagePath);
+        }
+
+        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void guardarComoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog();
+
+            op.Filter = "All files (*er)|*.er";
+            SaveFileDialog save = new SaveFileDialog();
+            save.FileName = "";
+            // filtros
+            save.Filter = "Archivos de er (*.er)|*.er|Todos los archivos (*.*)|*.*";
+
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                texto.SaveFile(save.FileName, RichTextBoxStreamType.PlainText);
+            }
+        }
+
+        private void guardarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
