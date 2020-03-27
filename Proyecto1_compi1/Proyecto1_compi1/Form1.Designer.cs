@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.B_abrir = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.guardarComoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analizarLexicamenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analisisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generarElAFNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,7 +41,7 @@
             this.B_siguiente = new System.Windows.Forms.Button();
             this.texto = new System.Windows.Forms.RichTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.guardarComoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirTokenXLMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -73,12 +74,20 @@
             this.guardarToolStripMenuItem.Text = "Opciones de Guardar";
             this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
             // 
+            // guardarComoToolStripMenuItem
+            // 
+            this.guardarComoToolStripMenuItem.Name = "guardarComoToolStripMenuItem";
+            this.guardarComoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.guardarComoToolStripMenuItem.Text = "Guardar Como";
+            this.guardarComoToolStripMenuItem.Click += new System.EventHandler(this.guardarComoToolStripMenuItem_Click);
+            // 
             // analizarLexicamenteToolStripMenuItem
             // 
             this.analizarLexicamenteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.analisisToolStripMenuItem,
             this.generarElAFNToolStripMenuItem,
-            this.generarElAFDToolStripMenuItem});
+            this.generarElAFDToolStripMenuItem,
+            this.abrirTokenXLMToolStripMenuItem});
             this.analizarLexicamenteToolStripMenuItem.Name = "analizarLexicamenteToolStripMenuItem";
             this.analizarLexicamenteToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.analizarLexicamenteToolStripMenuItem.Text = "Acciones";
@@ -119,6 +128,7 @@
             this.B_anterior.TabIndex = 4;
             this.B_anterior.Text = "Anterior";
             this.B_anterior.UseVisualStyleBackColor = true;
+            this.B_anterior.Click += new System.EventHandler(this.B_anterior_Click);
             // 
             // B_siguiente
             // 
@@ -140,19 +150,19 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(430, 27);
+            this.pictureBox1.Location = new System.Drawing.Point(381, 27);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(288, 240);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.Size = new System.Drawing.Size(361, 240);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // guardarComoToolStripMenuItem
+            // abrirTokenXLMToolStripMenuItem
             // 
-            this.guardarComoToolStripMenuItem.Name = "guardarComoToolStripMenuItem";
-            this.guardarComoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.guardarComoToolStripMenuItem.Text = "Guardar Como";
-            this.guardarComoToolStripMenuItem.Click += new System.EventHandler(this.guardarComoToolStripMenuItem_Click);
+            this.abrirTokenXLMToolStripMenuItem.Name = "abrirTokenXLMToolStripMenuItem";
+            this.abrirTokenXLMToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.abrirTokenXLMToolStripMenuItem.Text = "Abrir archivos XLM";
+            this.abrirTokenXLMToolStripMenuItem.Click += new System.EventHandler(this.abrirTokenXLMToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -191,6 +201,7 @@
         private System.Windows.Forms.ToolStripMenuItem generarElAFDToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem guardarComoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem abrirTokenXLMToolStripMenuItem;
     }
 }
 

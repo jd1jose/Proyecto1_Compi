@@ -27,7 +27,7 @@ namespace Proyecto1_compi1
             try
             {
                 //se le da la ruta del archivo que se desea abrir
-                Process.Start(@"C:\Users\José David\Documents\Visual Studio 2015\Projects\Proyecto1_compi1\Proyecto1_compi1\bin\Debug\Dot\" + nombre+".png");
+               // Process.Start(@"C:\Users\José David\Documents\Visual Studio 2015\Projects\Proyecto1_compi1\Proyecto1_compi1\bin\Debug\Dot\" + nombre+".png");
               
 
             }

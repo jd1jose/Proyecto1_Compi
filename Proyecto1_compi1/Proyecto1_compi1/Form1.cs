@@ -14,6 +14,10 @@ namespace Proyecto1_compi1
     public partial class Form1 : Form
     {
         Analisis d = new Analisis();
+        List<string> nombre = new List<string>();
+        int contador = 0, max = 0;
+        string ruta;
+
         public Form1()
         {
             InitializeComponent();
@@ -21,7 +25,25 @@ namespace Proyecto1_compi1
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            max = nombre.Count-1;
+            if (contador <= max)
+            {
+                if (contador == max)
+                {
+                    contador = 0;
+                    imagen();
+                }
+                else {
+                    contador++;
+                    imagen();
+                }
+             
+            }
+            else {
+                contador = 0;
+          
+                imagen();
+            }
         }
 
         private void B_abrir_Click(object sender, EventArgs e)
@@ -72,16 +94,15 @@ namespace Proyecto1_compi1
         
             string[] name = vamos.getname().Split(',');
             for (int i =1; i<name.Length;i++) {
-                pictureBox1.Image = Image.FromFile(
-                    @"C:\Users\José David\Documents\Visual Studio 2015\Projects\Proyecto1_compi1\Proyecto1_compi1\bin\Debug\Dot\" + name[i] + ".png");
+                nombre.Add(name[i]);
                 //  
             }
-
-            //string imagePath = Path.Combine(Application.StartupPath, "Imágenes\\Movimientos\\Rey.jpg");
-
-            //Picture.Image = Image.FromFile(imagePath);
+            imagen();
         }
-
+        private void imagen() {
+            ruta = @"C:\Users\José David\Documents\Visual Studio 2015\Projects\Proyecto1_compi1\Proyecto1_compi1\bin\Debug\Dot\" + nombre[contador] + ".png";
+            pictureBox1.Image = Image.FromFile(ruta);
+        }
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
           
@@ -100,6 +121,57 @@ namespace Proyecto1_compi1
             if (save.ShowDialog() == DialogResult.OK)
             {
                 texto.SaveFile(save.FileName, RichTextBoxStreamType.PlainText);
+            }
+        }
+
+        private void B_anterior_Click(object sender, EventArgs e)
+        {
+            if (contador >= 0)
+            {
+                if (contador == 0)
+                {
+                    contador = max;
+                   
+                    imagen();
+                }
+                else {
+                    contador--;
+                    imagen();
+                }
+               
+            }
+            else {
+                contador = max;
+                contador--;
+                imagen();
+            }
+        }
+
+        private void abrirTokenXLMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = @"C:\Users\José David\Documents\Visual Studio 2015\Projects\Proyecto1_compi1\Proyecto1_compi1\bin\Debug\";
+                openFileDialog.Filter = "xlm files (*.xlm)|*.xlm";
+                openFileDialog.FilterIndex = 0;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    filePath = openFileDialog.FileName;
+
+                    //Read the contents of the file into a stream
+                    var fileStream = openFileDialog.OpenFile();
+
+                    using (StreamReader reader = new StreamReader(fileStream))
+                    {
+                        fileContent = reader.ReadToEnd();
+                    }
+                }
             }
         }
 
