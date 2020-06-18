@@ -1,0 +1,4 @@
+﻿  AVL.cpp
+c:\users\josé david\documents\visual studio 2015\projects\arbol_avl\arbol_avl\avl.cpp(230): warning C4715: 'AVL::Eliminar1hijo': not all control paths return a value
+c:\users\josé david\documents\visual studio 2015\projects\arbol_avl\arbol_avl\avl.cpp(173): warning C4715: 'AVL::Eliminar2hijos': not all control paths return a value
+  [EDD]_Proyecto1.vcxproj -> C:\Users\José David\documents\visual studio 2015\Projects\[EDD]_Proyecto1\Debug\[EDD]_Proyecto1.exe
